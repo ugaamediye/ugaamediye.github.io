@@ -132,7 +132,7 @@ label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--
 textarea.json{font-family:monospace;font-size:.8rem;height:120px;margin-top:12px;display:none}
 
 /* stories */
-.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.posts{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .post{background:var(--card);padding:24px;cursor:pointer;border-top:4px solid var(--kraft);transition:transform .15s}
 .post:hover{transform:translateY(-3px)}
 .post .tag{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
@@ -334,6 +334,14 @@ nav .links a:hover::after,nav .links a.on::after{transform:scaleX(1)}
 footer .ig{border-radius:0}
 section{padding:80px 0}
 footer{clip-path:none!important;border-radius:36px 36px 0 0;padding-top:40px}
+
+.bigstat{font-family:'Playfair Display',serif;font-weight:700;font-size:3rem;color:var(--accent);line-height:1;margin:6px 0 8px}
+.statcard p.src{font-size:.75rem;margin-top:10px}.statcard p.src a{color:var(--ink-soft)}
+.srcs{font-size:.85rem;color:var(--ink-soft);border-top:1px solid rgba(156,133,105,.4);padding-top:14px;margin-top:26px}
+.srcs a{color:var(--ink-soft);word-break:break-all}
+.article h3{font-size:1.5rem;margin:26px 0 10px}
+.timeline{border-left:2px solid var(--mustard);padding-left:18px;margin:10px 0 18px}
+.timeline p{margin-bottom:10px}.timeline b{font-family:'Oswald',sans-serif;color:var(--accent);letter-spacing:.04em}
 </style>
 </head>
 <body>
@@ -388,7 +396,7 @@ footer{clip-path:none!important;border-radius:36px 36px 0 0;padding-top:40px}
       <div class="sec-title"><div class="label"><i>№ 02</i> ugaa mediye</div><br><div class="script">why it matters</div><div class="scroll"><h2 data-i="aboutH">Яагаад угийн бичиг вэ?</h2></div></div>
       <div class="three">
         <div class="paper"><div class="num">01</div><h3 data-i="a1h"></h3><p data-i="a1p"></p></div>
-        <div class="paper"><div class="num">02</div><h3 data-i="a2h"></h3><p data-i="a2p"></p></div>
+        <div class="paper statcard"><div class="num">02</div><h3 data-i="a2h"></h3><div class="bigstat">85.4%</div><p data-i="a2p"></p><p class="src"><a href="https://iss.gov.mn/?p=1340" data-i="a2src"></a></p></div>
         <div class="paper"><div class="num">03</div><h3 data-i="a3h"></h3><p data-i="a3p"></p></div>
       </div>
     </div>
@@ -497,7 +505,7 @@ mn:{bShare:"🔗 Хуваалцах",shareTitle:"Ургийн модоо хув�
 hTitle:"Ургийн бичгээ цахимаар хөтөлье",hText:"Эмээ өвөөгийнхөө нэр, овог, түүхийг нэг дор хадгалж, үр хүүхэддээ өвлүүлээрэй. Ургийн модоо хэдхэн минутад эхлүүлэх боломжтой.",
 hCta1:"Ургийн модоо эхлүүлэх",hCta2:"Овгоо хайх",magBy:"угийн бичгээ яагаад бичих ёстой вэ?",aboutH:"Яагаад угийн бичиг вэ?",
 a1h:"Тасарсан холбоо",a1p:"XX зуунд олон гэр бүл овог, угийн бичгээ алдсан. Одоо олон хүн өвөөгийнхөө өвөөг ч мэддэггүй.",
-a2h:"Нэг дор хадгалах",a2p:"Эмээ өвөөгийнхөө ярьсан түүх, гэрэл зураг, он сарыг нэг дор, үеэс үед дамжуулахаар хадгална.",
+a2h:"Цус ойртолтоос сэргийлэх",a2p:"Хөдөөгийн багийн гэрлэлтийн 85.4% нь нэг багийн уугуул хүмүүсийн хооронд болдог. Бүртгэгдсэн оюуны хомсдолын тохиолдлын тал хувь нь цус ойртолттой холбоотой гэж үздэг. Ургаа мэдэх нь эрүүл үр удмын үндэс.",a2src:"Эх сурвалж: Стратеги судалгааны хүрээлэн, 2021 →",
 a3h:"Хамаатнаа олох",a3p:"Ижил овогтой, ижил өвөг дээдэстэй хүмүүс хоорондоо холбогдож, ургийн модоо хамтдаа нөхнө.",
 treeH:"Ургийн модоо бүтээх",treeLead:"Хамгийн ахмад өвгөөсөө эхлээд хүүхэд, ач зээг нь нэмээрэй. Хүн дээр дарж зураг, түүх, эхнэр/нөхрийг нь нэмнэ.",
 bAddRoot:"+ Хамгийн ахмад өвөг нэмэх",bSample:"Жишээ үзэх",bJson:"Нөөцлөх (JSON)",bImport:"Сэргээх",bImportGo:"Энэ JSON-оос сэргээх",bClear:"Цэвэрлэх",
@@ -514,20 +522,20 @@ searchH:"Овгоо хайх",searchPh:"Овог эсвэл аймгаар ха�
 notFound:"Олдсонгүй. Та энэ овгийг анхлан бүртгээрэй ✦",clanNote:"Тайлбар: гишүүдийн тоо жишээ төдий. Бүртгэл нээгдсэний дараа бодит тоо харагдана.",
 histH:"Монголчууд ба ургийн бичиг",
 hist1:"Монголчууд эрт дээр үеэс өвөг дээдсээ мэдэх, ургийн бичгээ хөтлөх уламжлалтай. Ургийн бичигт үе үеийн өвгүүдийн нэр, овог, хаана нутаглаж байсныг тэмдэглэдэг байв.",
-hist2:"XX зуунд овог хэрэглэх явдал хумигдаж, олон гэр бүл ургийн бичиг, овгоо мартсан. Иймээс өнөөдөр ихэнх хүн эцгийнхээ нэрээр л овоглодог.",
-hist3:"1990-ээд оноос хойш иргэд овгоо дахин сэргээж, бичиг баримтдаа бүртгүүлэх болсон. Ugiin Bichig нь энэ уламжлалыг цахим хэлбэрээр үргэлжлүүлэх зорилготой.",
+hist2:"1925 онд Засгийн газрын шийдвэрээр ургийн овог хэрэглэх, угийн бичиг хөтлөхийг зогсоож, бүгд эцгийн нэрээр овоглох болсон. Бараг 70 жилийн турш ургийн овог хэрэглэгдээгүй.",
+hist3:"1997 оны 1-р сарын 8-нд Засгийн газрын 17-р тогтоолоор «Угийн бичиг хөтлөх журам» батлагдаж, ургийн овог дахин хэрэглэгдэх болсон. Ugiin Bichig энэ уламжлалыг цахим хэлбэрээр үргэлжлүүлнэ.",
 storiesH:"Нийтлэл",read:"Унших →",back:"← Бүх нийтлэл",
 missionH:"Бидний зорилго",
 mission1:"Ugiin Bichig (Ugaa Mediye) нь монгол хүн бүр ургийн бичгээ цахимаар хялбар хөтөлж, үр хүүхэддээ өвлүүлэх боломжийг бүрдүүлэх зорилготой залуусын санаачилга юм.",
 mission2:"Бид эмээ өвөөгийнхөө ярьсан түүх, гэрэл зураг, овог нэрийг нэг дор хадгалж, ижил өвөг дээдэстэй хамаатан садангаа олоход тусалмаар байна.",
 mission3:"Төсөл хөгжүүлэлтийн шатандаа явж байна. Санал, хүсэлтээ бидэнд илгээгээрэй!",
 contactH:"Холбоо барих",contactP:"Санал хүсэлт, хамтран ажиллах санаа байвал Instagram-аар бичээрэй.",
-footer:"Мөнх хөх тэнгэрийн дор, өвөг дээдсээрээ нэгдэнэ.",gen:"Үе"},
+footer:"Мөнх хөх тэнгэрийн дор, удам судраа мөнхөлнө.",gen:"Үе"},
 en:{bShare:"🔗 Share",shareTitle:"Share your family tree",shareNeedLogin:"Please log in to share.",shareP:"Send this link to your family. Anyone with the link can view your tree, but cannot edit it.",shareOn:"Create share link",shareOff:"Stop sharing",shareCopy:"Copy",shareStopped:"Sharing stopped",shareMade:"Link ready ✓",viewing:"You are viewing a shared family tree (view only).",viewOwn:"Build your own →",viewMissing:"This family tree was not found or is no longer shared.",login:"Log in",logout:"Log out",authTitle:"Log in",signupTitle:"Sign up",gLogin:"Continue with Google",or:"or with email",email:"Email",pass:"Password (6+ characters)",doLogin:"Log in",doSignup:"Sign up",toSignup:"No account? Sign up",toLogin:"Have an account? Log in",forgot:"Forgot password?",resetSent:"Password reset email sent ✓",welcome:"Welcome",loggedOut:"Logged out",cloudSaved:"☁️ Saved to your account",cloudOff:"🔒 Saved on this device only. Log in to open it from any device.",syncing:"☁️ Saving…",synced:"☁️ Saved ✓",syncErr:"⚠ Couldn't save online",loaded:"Your family tree is loaded ✓",netErr:"Connection error. Please try again.",tooBig:"Too many photos to save online. Please remove some.",nHome:"Home",cLined:"family tree ✓\nask grandma ✓\nold photos…",cSub:"know your roots · your family record, online",cNote:"Knowing your ancestors is the beginning of knowing yourself.",qText:"“Let's keep our grandparents' names, clans and stories in one place, and pass them on to our children.”",qWho:"— the Ugiin Bichig mission",nTree:"Family tree",nClans:"Clans",nStories:"Stories",nAbout:"About",
 hTitle:"Keep your family record, online",hText:"Save your grandparents' names, clan and stories in one place and pass them on to your children. Start your family tree in a few minutes.",
 hCta1:"Start your family tree",hCta2:"Find your clan",magBy:"a journey back to our ancestors",aboutH:"Why Ugiin Bichig?",
 a1h:"Broken links",a1p:"In the 20th century many families lost their clan names and lineage records. Today many people don't know their great-grandparents.",
-a2h:"Keep it in one place",a2p:"Save grandparents' stories, photos and dates in one place, to pass on from generation to generation.",
+a2h:"Prevent consanguinity",a2p:"85.4% of marriages in rural bags are between natives of the same bag. Half of registered intellectual-disability cases are attributed to consanguinity. Knowing your lineage protects future generations.",a2src:"Source: Institute for Strategic Studies, 2021 →",
 a3h:"Find your relatives",a3p:"People who share a clan or ancestors can connect and complete their family tree together.",
 treeH:"Build your family tree",treeLead:"Start with your oldest ancestor, then add their children and grandchildren. Click a person to add a photo, story or spouse.",
 bAddRoot:"+ Add oldest ancestor",bSample:"See example",bJson:"Back up (JSON)",bImport:"Restore",bImportGo:"Restore from this JSON",bClear:"Clear",
@@ -544,15 +552,15 @@ searchH:"Find your clan",searchPh:"Search by clan or province… (e.g. Borjigin)
 notFound:"No results. Be the first to register this clan ✦",clanNote:"Note: member counts are examples only. Real numbers will appear once accounts open.",
 histH:"Mongolians and the family record",
 hist1:"Mongolians have long kept the tradition of knowing their ancestors and keeping a family record (ugiin bichig), noting each generation's names, clan and homeland.",
-hist2:"In the 20th century the use of clan names declined and many families forgot their records and clans. That is why most people today go by their father's name.",
-hist3:"Since the 1990s people have been restoring their clan names and registering them on their documents. Ugiin Bichig carries this tradition into the digital age.",
+hist2:"In 1925 a government decision stopped the use of clan names and family records, and everyone began using their father's name instead. Clan names went unused for almost 70 years.",
+hist3:"On 8 January 1997, Government Resolution No. 17 approved the \"Rules for keeping a family record\", and clan names returned to use. Ugiin Bichig carries this tradition into the digital age.",
 storiesH:"Stories",read:"Read →",back:"← All stories",
 missionH:"Our mission",
 mission1:"Ugiin Bichig (Ugaa Mediye) is a youth-led initiative to help every Mongolian keep their family record online and pass it on to the next generation.",
 mission2:"We want to help people save their grandparents' stories, photos and clan names in one place, and find relatives who share their ancestors.",
 mission3:"The project is still being built. Send us your ideas and feedback!",
 contactH:"Contact",contactP:"Have feedback or want to collaborate? Message us on Instagram.",
-footer:"Under the eternal blue sky, we're united by our ancestors.",gen:"Gen"}
+footer:"Under the eternal blue sky, we carry our lineage forward.",gen:"Gen"}
 };
 let lang='mn';try{lang=localStorage.getItem('ub-lang')||'mn'}catch(e){}
 const t=k=>T[lang][k]??k;
@@ -786,6 +794,11 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 
 /* ================= STORIES ================= */
 const posts=[
+ {tag:{mn:"Түүх",en:"History"},
+  title:{mn:"Угийн бичгийн үүсэл, түүх",en:"The history of the Mongolian family record"},
+  sum:{mn:"Нууц товчооноос 1925 оны хориг, 1997 оны сэргэлт хүртэл — угийн бичгийн замнал.",en:"From the Secret History to the 1925 ban and the 1997 revival — the story of the family record."},
+  body:{mn:`<p>Монголчууд эрт дээр үеэс ураг удмаа эрхэмлэн, өвөг дээдсийнхээ нэрийг үеэс үед дамжуулж ирсэн. <i>Монголын нууц товчоо</i> ч Чингис хааны өвөг дээдсийн угийн бичгээр эхэлдэг нь энэ уламжлалын хамгийн эртний гэрч юм.</p><h3>Түүхэн замнал</h3><div class="timeline"><p><b>Эрт үе</b> — Овог бүр өөрийн удам судрыг бичиж үлдээдэг байв. Ургийн бичгийг <i>түүхчлэн бичих</i>, <i>хүснэгтлэн зурах</i> гэсэн хоёр аргаар хөтөлдөг байжээ.</p><p><b>Манжийн үе</b> — Ургийн бичиг хөтлөх уламжлал аажмаар бүдгэрч эхэлсэн.</p><p><b>1925</b> — Засгийн газрын шийдвэрээр ургийн овог хэрэглэх, угийн бичиг хөтлөхийг зогсоож, бүгд эцгийн нэрээр овоглох болсон. Энэ нь бараг 70 жил үргэлжилсэн.</p><p><b>1997.01.08</b> — Засгийн газрын 17-р тогтоолоор «Угийн бичиг хөтлөх журам» батлагдаж, хүн бүр ургийн овогтой байхаар тогтсон.</p><p><b>Өнөөдөр</b> — 92,000 гаруй ургийн овог бүртгэгдсэн бөгөөд хамгийн олон хүн <b>Боржигон</b> овогтой. Олон хүн овгоо мэдэхгүй байсан тул нэг гэр бүлийн гишүүд өөр өөр овог сонгох, эсвэл бүгд Боржигон гэж бүртгүүлэх явдал түгээмэл гарсан.</p></div><h3>Яагаад одоо чухал вэ?</h3><p>Хэдэн үе ургийн бичиг хөтлөөгүйн улмаас олон хүн өвөөгөөсөө дээш үеэ мэдэхгүй болсон. Судлаачдын үзэж байгаагаар энэ нь цус ойртолтын эрсдэлийг нэмэгдүүлж байна: хөдөөгийн багийн гэрлэлтийн 85.4% нь нэг багийн уугуул хүмүүсийн хооронд болдог.</p><p>Угийн бичгээ хөтлөх нь түүх, соёлоо хадгалахаас гадна үр удмынхаа эрүүл мэндийг хамгаалах арга юм. <a href="#tree">Өөрийн ургийн модоо эхлүүлэх →</a></p><div class="srcs">Эх сурвалж: <a href="https://www.familysearch.org/en/wiki/Mongolian:The_Law_of_using_Family_Name">FamilySearch — Ургийн овог хэрэглэх тухай хууль</a> · <a href="https://ikon.mn/n/15ob">ikon.mn — Ургийн овог бүдгэрч, угийн бичгээ гээсэн Монгол</a> · <a href="https://www.urgiinbichig.mn/AboutUgiinbichig">urgiinbichig.mn — Угийн бичиг, удмын түүх</a> · <a href="https://iss.gov.mn/?p=1340">Стратеги судалгааны хүрээлэн — Хүн ам дахь цус ойртолт</a></div>`,
+  en:`<p>Mongolians have long honoured their lineage and passed down the names of their ancestors. <i>The Secret History of the Mongols</i> itself opens with the genealogy of Chinggis Khaan — one of the oldest witnesses of this tradition.</p><h3>Timeline</h3><div class="timeline"><p><b>Early times</b> — Each clan recorded its own lineage, either <i>as a written narrative</i> or <i>as a drawn table</i>.</p><p><b>Manchu (Qing) era</b> — The tradition of keeping family records gradually faded.</p><p><b>1925</b> — A government decision stopped the use of clan names and family records; everyone took their father's name instead. This lasted almost 70 years.</p><p><b>8 Jan 1997</b> — Government Resolution No. 17 approved the "Rules for keeping a family record", and every citizen was to have a clan name again.</p><p><b>Today</b> — More than 92,000 clan names are registered, and <b>Borjigon</b> is the most common. Because many people no longer knew their clan, members of one family sometimes chose different names, or simply all registered as Borjigon.</p></div><h3>Why it matters now</h3><p>After generations without family records, many people don't know their ancestors beyond their grandparents. Researchers link this to a higher risk of consanguinity: 85.4% of marriages in rural bags are between natives of the same bag.</p><p>Keeping a family record preserves our history and culture — and protects the health of future generations. <a href="#tree">Start your family tree →</a></p><div class="srcs">Sources: <a href="https://www.familysearch.org/en/wiki/Mongolian:The_Law_of_using_Family_Name">FamilySearch — Ургийн овог хэрэглэх тухай хууль</a> · <a href="https://ikon.mn/n/15ob">ikon.mn — Ургийн овог бүдгэрч, угийн бичгээ гээсэн Монгол</a> · <a href="https://www.urgiinbichig.mn/AboutUgiinbichig">urgiinbichig.mn — Угийн бичиг, удмын түүх</a> · <a href="https://iss.gov.mn/?p=1340">Стратеги судалгааны хүрээлэн — Хүн ам дахь цус ойртолт</a></div>`}},
  {tag:{mn:"Зөвлөгөө",en:"Guide"},
   title:{mn:"Эмээ өвөөгөөсөө асуух 10 асуулт",en:"10 questions to ask your grandparents"},
   sum:{mn:"Ургийн бичгээ эхлүүлэх хамгийн сайн арга бол ахмадуудаа ярилцах. Эдгээр асуултаар эхлээрэй.",en:"The best way to start your family record is to talk to your elders. Start with these questions."},
@@ -796,22 +809,22 @@ const posts=[
 <li>Who were your parents? What was their clan name?</li><li>Where were you born? Where did your family live at that time?</li><li>Do you remember your grandparents' names?</li><li>How many siblings did you have? Where are they now?</li><li>What is your clearest childhood memory?</li><li>What work did you do when you were young?</li><li>How did you and grandma/grandpa meet?</li><li>Are there customs or sayings passed down in our family?</li><li>Do you have old photos or documents?</li><li>What would you like to tell your grandchildren?</li></ol>
 <p>Save the answers in the "Story & memories" field of your <a href="#tree">family tree</a>.</p>`}},
  {tag:{mn:"Тайлбар",en:"Explainer"},
-  title:{mn:"Ургийн бичиг гэж юу вэ?",en:"What is an ugiin bichig?"},
+  title:{mn:"Угийн бичиг, ургийн бичиг гэж юу вэ?",en:"What is an ugiin bichig?"},
   sum:{mn:"Ургийн бичиг, ургийн мод, овог гэж юу болох, яагаад чухал болох тухай.",en:"What a family record, family tree and clan name are, and why they matter."},
   body:{mn:`<p><b>Ургийн бичиг</b> гэдэг нь нэг гэр бүл, овгийн үе үеийн хүмүүсийг өвгөөс нь эхлэн дараалан тэмдэглэсэн бичиг юм. Түүнд хүний нэр, овог, хэний хүүхэд болох, хаана нутаглаж байсан зэргийг бичдэг.</p>
 <p><b>Ургийн мод</b> нь энэ мэдээллийг зургаар харуулсан хэлбэр. Хамгийн ахмад өвөг дээд талд нь, үр удам нь салаа мөчир мэт доош нь үргэлжилнэ.</p>
 <p><b>Овог</b> нь таны ургийн нэр. Монголд хүмүүс эцэг/эхийн нэр болон ургийн овгоо хоёуланг нь хэрэглэдэг.</p>
-<p>Ургийн бичиг хөтлөх нь өөрийгөө хаанаас гаралтайг мэдэх, хамаатан садангаа таних, гэр бүлийн түүхийг үр хүүхэддээ өвлүүлэхэд тусалдаг.</p>`,
+<p>Ургийн бичиг хөтлөх нь өөрийгөө хаанаас гаралтайг мэдэх, хамаатан садангаа таних, гэр бүлийн түүхийг үр хүүхэддээ өвлүүлэхэд тусалдаг.</p><h3>Угийн бичиг ба ургийн бичиг — ялгаа нь юу вэ?</h3><p><b>Угийн бичиг</b> нь <b>уг</b> (эх үүсвэр, гарал, үндэс) гэдэг үгнээс гаралтай бөгөөд <i>бид хаанаас гаралтай вэ</i> гэдгийг, өвөг дээдсийн удамшлын шугамыг тэмдэглэнэ.</p><p><b>Ургийн бичиг</b> нь <b>ураг</b> (ураг төрөл, ураг садан) гэдэг үгнээс гаралтай бөгөөд <i>бид хэн хэнтэйгээ холбоотой вэ</i> гэдгийг, хамаатан садны холбоог тэмдэглэнэ.</p><p>Өдөр тутамд энэ хоёрыг ихэвчлэн ижил утгаар хэрэглэдэг. Харин <b>ургийн мод</b> гэдэг нь энэ мэдээллийг модны хэлбэрээр зурсан дүрслэл юм.</p>`,
   en:`<p>An <b>ugiin bichig</b> is a written record of a family or clan, listing each generation starting from the oldest ancestor. It notes names, clan, whose child each person is, and where they lived.</p>
 <p>A <b>family tree</b> is a visual version of that record: the oldest ancestor at the top, descendants branching downward.</p>
 <p>The <b>ovog</b> is your clan name. In Mongolia people use both a patronymic (their father's or mother's name) and their clan name.</p>
-<p>Keeping a family record helps you know where you come from, recognise your relatives, and pass your family's story to your children.</p>`}},
+<p>Keeping a family record helps you know where you come from, recognise your relatives, and pass your family's story to your children.</p><h3>Ugiin bichig vs. urgiin bichig</h3><p><b>Ugiin bichig</b> comes from <b>ug</b> (origin, root): it records <i>where we come from</i> — the line of our ancestors.</p><p><b>Urgiin bichig</b> comes from <b>urag</b> (kin, relatives): it records <i>how we are related</i> — the web of family ties.</p><p>In everyday speech the two are often used interchangeably, and a <b>family tree</b> (urgiin mod) is the drawn version of this record.</p>`}},
  {tag:{mn:"Алхам алхмаар",en:"Step by step"},
   title:{mn:"Ургийн модоо хэрхэн эхлүүлэх вэ?",en:"How to start your family tree"},
   sum:{mn:"Өөрөөсөө эхлээд өвөг дээдэс рүүгээ — 5 энгийн алхам.",en:"Start from yourself and work back to your ancestors — 5 simple steps."},
-  body:{mn:`<ol><li><b>Мэддэгээсээ эхэл.</b> Өөрийгөө, аав ээж, эмээ өвөөгөө бич.</li><li><b>Ахмадуудаасаа асуу.</b> <a href="#post0">10 асуулт</a>-аа ашиглаарай.</li><li><b>Бичиг баримт цуглуул.</b> Төрсний гэрчилгээ, хуучин зураг, захидал зэрэг нь он сар, нэрийг баталгаажуулна.</li><li><b>Овгоо тодорхойл.</b> Ахмадуудаасаа овгоо асууж, <a href="#clans">овгийн жагсаалтаас</a> хайгаарай.</li><li><b>Тогтмол шинэчил.</b> Шинэ төрсөн хүүхэд, шинэ олсон мэдээллээ нэмж, нөөцөө хадгалж байгаарай.</li></ol>
+  body:{mn:`<ol><li><b>Мэддэгээсээ эхэл.</b> Өөрийгөө, аав ээж, эмээ өвөөгөө бич.</li><li><b>Ахмадуудаасаа асуу.</b> <a href="#post1">10 асуулт</a>-аа ашиглаарай.</li><li><b>Бичиг баримт цуглуул.</b> Төрсний гэрчилгээ, хуучин зураг, захидал зэрэг нь он сар, нэрийг баталгаажуулна.</li><li><b>Овгоо тодорхойл.</b> Ахмадуудаасаа овгоо асууж, <a href="#clans">овгийн жагсаалтаас</a> хайгаарай.</li><li><b>Тогтмол шинэчил.</b> Шинэ төрсөн хүүхэд, шинэ олсон мэдээллээ нэмж, нөөцөө хадгалж байгаарай.</li></ol>
 <p>Бэлэн үү? <a href="#tree">Ургийн модоо одоо эхлүүлээрэй →</a></p>`,
-  en:`<ol><li><b>Start with what you know.</b> Write down yourself, your parents and your grandparents.</li><li><b>Ask your elders.</b> Use the <a href="#post0">10 questions</a>.</li><li><b>Collect documents.</b> Birth certificates, old photos and letters confirm names and dates.</li><li><b>Find your clan.</b> Ask your elders and search the <a href="#clans">clan list</a>.</li><li><b>Keep it updated.</b> Add new births and discoveries, and back up regularly.</li></ol>
+  en:`<ol><li><b>Start with what you know.</b> Write down yourself, your parents and your grandparents.</li><li><b>Ask your elders.</b> Use the <a href="#post1">10 questions</a>.</li><li><b>Collect documents.</b> Birth certificates, old photos and letters confirm names and dates.</li><li><b>Find your clan.</b> Ask your elders and search the <a href="#clans">clan list</a>.</li><li><b>Keep it updated.</b> Add new births and discoveries, and back up regularly.</li></ol>
 <p>Ready? <a href="#tree">Start your family tree now →</a></p>`}}
 ];
 let curPost=null;
