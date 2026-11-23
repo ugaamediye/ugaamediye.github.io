@@ -483,6 +483,40 @@ footer .fside{width:62px;height:62px;background:url("data:image/svg+xml,%3Csvg%2
 .fr{font-size:.75rem;color:var(--ink-soft);line-height:1.4}
 .cnote{font-size:.74rem;color:var(--ink-soft);font-style:italic;margin-top:14px;text-align:center;position:relative;z-index:1}
 @media (max-width:760px){.cgrid{grid-template-columns:1fr}.cdet{padding:26px 18px}}
+
+/* ===== elevated tree ===== */
+.tree-tools{flex-direction:column;align-items:center;gap:12px!important}
+.tt-main{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.tt-main button{padding:12px 24px}
+.tt-sub{display:flex;align-items:center;gap:4px;flex-wrap:wrap;justify-content:center;background:rgba(246,238,223,.7);border:1px solid rgba(156,133,105,.3);border-radius:999px;padding:4px 10px}
+.tt-sub .mini{background:none!important;color:var(--ink-soft)!important;font-size:.8rem;padding:6px 12px;border:none}
+.tt-sub .mini:hover{color:var(--ink)!important;background:rgba(184,134,43,.12)!important;transform:none}
+.tt-sub .dangerT{color:var(--accent)!important}
+.tt-sub .sep{width:1px;height:14px;background:rgba(156,133,105,.4)}
+.tree-wrap{background:#f6eedf!important;background-image:none!important;border-radius:6px!important;padding:46px 26px 40px!important;position:relative;border:1px solid rgba(156,133,105,.3)}
+.tree-wrap::before,.tree-wrap::after{content:"";position:absolute;pointer-events:none;border-radius:3px}
+.tree-wrap::before{inset:10px;border:1px solid rgba(184,134,43,.4)}
+.tree-wrap::after{inset:15px;border:1px dashed rgba(184,134,43,.3)}
+.cart{text-align:center;margin:0 auto 6px;position:relative;z-index:1}
+.cart-k{font-family:'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.66rem;color:var(--accent)}
+.cart-t{font-family:'Playfair Display',serif;font-size:1.9rem;color:#3a2a20;margin-top:2px}
+.cart::after{content:"";display:block;width:120px;height:10px;margin:8px auto 0;background:radial-gradient(circle,#b8862b 2.5px,transparent 3px) center/14px 10px repeat-x}
+.tstats{display:flex;justify-content:center;gap:0;margin:10px auto 26px;position:relative;z-index:1;width:max-content;border:1px solid rgba(156,133,105,.3);border-radius:4px;background:#fbf6ec}
+.tstats div{padding:8px 22px;text-align:center;border-right:1px solid rgba(156,133,105,.25)}.tstats div:last-child{border-right:none}
+.tstats b{display:block;font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--accent);font-weight:600}
+.tstats span{font-size:.68rem;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-soft)}
+.tree{position:relative;z-index:1}
+.node{width:150px;border-radius:6px!important;background:#fbf6ec!important;border:1px solid rgba(156,133,105,.45)!important;padding:14px 10px 12px!important;box-shadow:0 2px 0 rgba(184,134,43,.25),0 6px 14px rgba(60,40,20,.06)}
+.node:hover{box-shadow:0 2px 0 #b8862b,0 12px 24px rgba(60,40,20,.14)!important}
+.node.spouse{background:#f3e9d6!important;border-style:solid!important;opacity:.95}
+.node .ava{width:58px;height:58px;background:radial-gradient(circle at 35% 30%,#6b5243,#3a2a20)!important;color:#f1c56a;font-family:'Playfair Display',serif;box-shadow:0 0 0 3px #fbf6ec,0 0 0 4.5px #b8862b!important;border:none!important}
+.node.spouse .ava{background:radial-gradient(circle at 35% 30%,#9c7a66,#6b5243)!important}
+.node .n{font-family:'Playfair Display',serif;font-size:1rem;margin-top:8px;color:#3a2a20}
+.node .o{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mustard)}
+.node .y{font-family:'Oswald',sans-serif;font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft);margin-top:2px}
+.amp{display:flex;align-items:center;padding:0 2px}
+.tree li::before,.tree li::after,.tree ul ul::before{border-color:#c9a86a!important;border-width:1.5px!important}
+@media (max-width:760px){.tstats div{padding:6px 12px}.cart-t{font-size:1.4rem}}
 </style>
 </head>
 <body>
@@ -555,12 +589,12 @@ footer .fside{width:62px;height:62px;background:url("data:image/svg+xml,%3Csvg%2
       <div class="sec-title"><div class="label"><i>№ 03</i> ugaa mediye</div><br><div class="script">build your family tree</div><div class="scroll"><h2 data-i="treeH">Ургийн модоо бүтээх</h2></div></div>
       <p class="lead" data-i="treeLead"></p>
       <div class="tree-tools">
-        <button onclick="openEdit(null,null)" data-i="bAddRoot">+ Хамгийн ахмад өвөг нэмэх</button>
-        <button class="ghost" onclick="loadSample()" data-i="bSample">Жишээ үзэх</button>
-        <button class="ghost" id="shareBtn" onclick="openShare()" data-i="bShare">🔗 Хуваалцах</button>
-        <button class="ghost" onclick="exportTree()" data-i="bJson">Нөөцлөх (JSON)</button>
-        <button class="ghost" onclick="importToggle()" data-i="bImport">Сэргээх</button>
-        <button class="danger" onclick="clearTree()" data-i="bClear">Цэвэрлэх</button>
+        <div class="tt-main"><button onclick="openEdit(null,null)" data-i="bAddRoot">+ Хамгийн ахмад өвөг нэмэх</button>
+        <button class="ghost" id="shareBtn" onclick="openShare()" data-i="bShare">🔗 Хуваалцах</button></div>
+        <div class="tt-sub"><button class="mini" onclick="loadSample()" data-i="bSample">Жишээ үзэх</button><span class="sep"></span>
+        <button class="mini" onclick="exportTree()" data-i="bJson">Нөөцлөх (JSON)</button><span class="sep"></span>
+        <button class="mini" onclick="importToggle()" data-i="bImport">Сэргээх</button><span class="sep"></span>
+        <button class="mini dangerT" onclick="clearTree()" data-i="bClear">Цэвэрлэх</button></div>
       </div>
       <div id="viewBar"></div>
       <div class="tree-wrap"><div class="tree" id="tree"></div></div>
@@ -667,7 +701,7 @@ footer .fside{width:62px;height:62px;background:url("data:image/svg+xml,%3Csvg%2
 <script>
 /* ================= I18N ================= */
 const T={
-mn:{cMore:"Дэлгэрэнгүй →",cBack:"← Бүх овог",cKick:"Ургийн овог",cHist:"Түүхэн товч",cTraits:"Онцлог шинж",cMap:"Нутаглаж байсан газар",cToday:"Өнөөдөр голчлон амьдардаг аймаг",cHistPlace:"Түүхэн нутаг, гол газар",cFigs:"Түүхэн зүтгэлтнүүд",cNoFig:"Энэ овгийн түүхэн зүтгэлтнүүдийн мэдээлэл удахгүй нэмэгдэнэ.",cDisclaimer:"Тэмдэглэл: Энэхүү мэдээлэл нь «Монголын нууц товчоо» болон түүхийн ерөнхий эх сурвалжид тулгуурласан товч тойм бөгөөд нарийвчилсан судалгаагаар баяжигдах болно.",readH:"Уншихыг зөвлөх",readLead:"Угийн бичиг, үндэс угсаа, цус ойртолтын талаар бусад сэтгүүлч, судлаачдын бичсэн нийтлэлүүд. Өөр өөр байр суурийг багтаасан тул шүүн тунгааж уншаарай.",magRead:"Нийтлэлийг унших →",bShare:"🔗 Хуваалцах",shareTitle:"Ургийн модоо хуваалцах",shareNeedLogin:"Хуваалцахын тулд эхлээд нэвтэрнэ үү.",shareP:"Энэ линкийг гэр бүлийнхэндээ илгээгээрэй. Линктэй хүн таны модыг зөвхөн харах боломжтой, засах боломжгүй.",shareOn:"Хуваалцах линк үүсгэх",shareOff:"Хуваалцахыг зогсоох",shareCopy:"Хуулах",shareStopped:"Хуваалцахыг зогсоолоо",shareMade:"Линк бэлэн ✓",viewing:"Та хуваалцсан ургийн модыг үзэж байна (зөвхөн харах).",viewOwn:"Өөрийн модоо бүтээх →",viewMissing:"Энэ ургийн мод олдсонгүй эсвэл хуваалцахыг зогсоосон байна.",login:"Нэвтрэх",logout:"Гарах",authTitle:"Нэвтрэх",signupTitle:"Бүртгүүлэх",gLogin:"Google-ээр нэвтрэх",or:"эсвэл имэйлээр",email:"Имэйл",pass:"Нууц үг (6+ тэмдэгт)",doLogin:"Нэвтрэх",doSignup:"Бүртгүүлэх",toSignup:"Бүртгэлгүй юу? Бүртгүүлэх",toLogin:"Бүртгэлтэй юу? Нэвтрэх",forgot:"Нууц үгээ мартсан?",resetSent:"Нууц үг сэргээх имэйл илгээлээ ✓",welcome:"Тавтай морил",loggedOut:"Гарлаа",cloudSaved:"☁️ Таны бүртгэлд хадгалагдаж байна",cloudOff:"🔒 Мэдээлэл зөвхөн энэ төхөөрөмж дээр. Нэвтэрвэл бүх төхөөрөмжөөс нээгдэнэ.",syncing:"☁️ Хадгалж байна…",synced:"☁️ Хадгалагдсан ✓",syncErr:"⚠ Онлайн хадгалж чадсангүй",loaded:"Таны ургийн мод ачааллаа ✓",netErr:"Холболтын алдаа. Дахин оролдоно уу.",tooBig:"Хэт олон зурагтай тул онлайн хадгалж чадсангүй. Зарим зургийг устгана уу.",nHome:"Нүүр",cLined:"ургийн мод ✓\nэмээгээс асуух ✓\nхуучин зураг…",cSub:"угаа мэдье · ургийн бичгээ цахимаар хөтөлье",cNote:"Өвөг дээдсээ мэдэх нь өөрийгөө мэдэхийн эхлэл.",qText:"“Эмээ өвөөгийнхөө нэр, овог, түүхийг нэг дор хадгалж, үр хүүхэддээ өвлүүлье.”",qWho:"— Ugiin Bichig-ийн зорилго",nTree:"Ургийн мод",nClans:"Овгууд",nStories:"Нийтлэл",nAbout:"Бидний тухай",
+mn:{tCart:"Ургийн бичиг",tCartOvog:"овгийн удам",tCartNone:"Манай удам",tsPeople:"гишүүн",tsGens:"үе",tsEarliest:"хамгийн эрт он",cMore:"Дэлгэрэнгүй →",cBack:"← Бүх овог",cKick:"Ургийн овог",cHist:"Түүхэн товч",cTraits:"Онцлог шинж",cMap:"Нутаглаж байсан газар",cToday:"Өнөөдөр голчлон амьдардаг аймаг",cHistPlace:"Түүхэн нутаг, гол газар",cFigs:"Түүхэн зүтгэлтнүүд",cNoFig:"Энэ овгийн түүхэн зүтгэлтнүүдийн мэдээлэл удахгүй нэмэгдэнэ.",cDisclaimer:"Тэмдэглэл: Энэхүү мэдээлэл нь «Монголын нууц товчоо» болон түүхийн ерөнхий эх сурвалжид тулгуурласан товч тойм бөгөөд нарийвчилсан судалгаагаар баяжигдах болно.",readH:"Уншихыг зөвлөх",readLead:"Угийн бичиг, үндэс угсаа, цус ойртолтын талаар бусад сэтгүүлч, судлаачдын бичсэн нийтлэлүүд. Өөр өөр байр суурийг багтаасан тул шүүн тунгааж уншаарай.",magRead:"Нийтлэлийг унших →",bShare:"🔗 Хуваалцах",shareTitle:"Ургийн модоо хуваалцах",shareNeedLogin:"Хуваалцахын тулд эхлээд нэвтэрнэ үү.",shareP:"Энэ линкийг гэр бүлийнхэндээ илгээгээрэй. Линктэй хүн таны модыг зөвхөн харах боломжтой, засах боломжгүй.",shareOn:"Хуваалцах линк үүсгэх",shareOff:"Хуваалцахыг зогсоох",shareCopy:"Хуулах",shareStopped:"Хуваалцахыг зогсоолоо",shareMade:"Линк бэлэн ✓",viewing:"Та хуваалцсан ургийн модыг үзэж байна (зөвхөн харах).",viewOwn:"Өөрийн модоо бүтээх →",viewMissing:"Энэ ургийн мод олдсонгүй эсвэл хуваалцахыг зогсоосон байна.",login:"Нэвтрэх",logout:"Гарах",authTitle:"Нэвтрэх",signupTitle:"Бүртгүүлэх",gLogin:"Google-ээр нэвтрэх",or:"эсвэл имэйлээр",email:"Имэйл",pass:"Нууц үг (6+ тэмдэгт)",doLogin:"Нэвтрэх",doSignup:"Бүртгүүлэх",toSignup:"Бүртгэлгүй юу? Бүртгүүлэх",toLogin:"Бүртгэлтэй юу? Нэвтрэх",forgot:"Нууц үгээ мартсан?",resetSent:"Нууц үг сэргээх имэйл илгээлээ ✓",welcome:"Тавтай морил",loggedOut:"Гарлаа",cloudSaved:"☁️ Таны бүртгэлд хадгалагдаж байна",cloudOff:"🔒 Мэдээлэл зөвхөн энэ төхөөрөмж дээр. Нэвтэрвэл бүх төхөөрөмжөөс нээгдэнэ.",syncing:"☁️ Хадгалж байна…",synced:"☁️ Хадгалагдсан ✓",syncErr:"⚠ Онлайн хадгалж чадсангүй",loaded:"Таны ургийн мод ачааллаа ✓",netErr:"Холболтын алдаа. Дахин оролдоно уу.",tooBig:"Хэт олон зурагтай тул онлайн хадгалж чадсангүй. Зарим зургийг устгана уу.",nHome:"Нүүр",cLined:"ургийн мод ✓\nэмээгээс асуух ✓\nхуучин зураг…",cSub:"угаа мэдье · ургийн бичгээ цахимаар хөтөлье",cNote:"Өвөг дээдсээ мэдэх нь өөрийгөө мэдэхийн эхлэл.",qText:"“Эмээ өвөөгийнхөө нэр, овог, түүхийг нэг дор хадгалж, үр хүүхэддээ өвлүүлье.”",qWho:"— Ugiin Bichig-ийн зорилго",nTree:"Ургийн мод",nClans:"Овгууд",nStories:"Нийтлэл",nAbout:"Бидний тухай",
 hTitle:"Ургийн бичгээ цахимаар хөтөлье",hText:"Эмээ өвөөгийнхөө нэр, овог, түүхийг нэг дор хадгалж, үр хүүхэддээ өвлүүлээрэй. Ургийн модоо хэдхэн минутад эхлүүлэх боломжтой.",
 hCta1:"Ургийн модоо эхлүүлэх",hCta2:"Овгоо хайх",magBy:"угийн бичгээ яагаад бичих ёстой вэ?",aboutH:"Яагаад угийн бичиг вэ?",
 a1h:"Овгоо мартсан үндэстэн",a1p:"хүн Боржигон овогтой бүртгэгдсэн. 1925 оноос бараг 70 жил овог хэрэглэхийг хориглосны улмаас олон хүн жинхэнэ овгоо мэдэхгүй болж, нэг овгийг бөөнөөрөө сонгосон.",a1src:"Эх сурвалж: ikon.mn, FamilySearch →",
@@ -697,7 +731,7 @@ mission2:"Бид эмээ өвөөгийнхөө ярьсан түүх, гэрэ
 mission3:"Төсөл хөгжүүлэлтийн шатандаа явж байна. Санал, хүсэлтээ бидэнд илгээгээрэй!",
 contactH:"Холбоо барих",contactP:"Санал хүсэлт, хамтран ажиллах санаа байвал Instagram-аар бичээрэй.",
 footer:"Мөнх хөх тэнгэрийн дор, удам судраа мөнхөлнө.",gen:"Үе"},
-en:{cMore:"Learn more →",cBack:"← All clans",cKick:"Clan",cHist:"Historical overview",cTraits:"Characteristics",cMap:"Homeland",cToday:"Main aimags today",cHistPlace:"Historical & key places",cFigs:"Historical figures",cNoFig:"Information on historical figures of this clan is coming soon.",cDisclaimer:"Note: This is a brief overview based on the Secret History of the Mongols and general historical sources, and will be expanded with further research.",readH:"Further reading",readLead:"Articles by other journalists and researchers on family records, ancestry and consanguinity. They include differing views — read them critically.",magRead:"Read the article →",bShare:"🔗 Share",shareTitle:"Share your family tree",shareNeedLogin:"Please log in to share.",shareP:"Send this link to your family. Anyone with the link can view your tree, but cannot edit it.",shareOn:"Create share link",shareOff:"Stop sharing",shareCopy:"Copy",shareStopped:"Sharing stopped",shareMade:"Link ready ✓",viewing:"You are viewing a shared family tree (view only).",viewOwn:"Build your own →",viewMissing:"This family tree was not found or is no longer shared.",login:"Log in",logout:"Log out",authTitle:"Log in",signupTitle:"Sign up",gLogin:"Continue with Google",or:"or with email",email:"Email",pass:"Password (6+ characters)",doLogin:"Log in",doSignup:"Sign up",toSignup:"No account? Sign up",toLogin:"Have an account? Log in",forgot:"Forgot password?",resetSent:"Password reset email sent ✓",welcome:"Welcome",loggedOut:"Logged out",cloudSaved:"☁️ Saved to your account",cloudOff:"🔒 Saved on this device only. Log in to open it from any device.",syncing:"☁️ Saving…",synced:"☁️ Saved ✓",syncErr:"⚠ Couldn't save online",loaded:"Your family tree is loaded ✓",netErr:"Connection error. Please try again.",tooBig:"Too many photos to save online. Please remove some.",nHome:"Home",cLined:"family tree ✓\nask grandma ✓\nold photos…",cSub:"know your roots · your family record, online",cNote:"Knowing your ancestors is the beginning of knowing yourself.",qText:"“Let's keep our grandparents' names, clans and stories in one place, and pass them on to our children.”",qWho:"— the Ugiin Bichig mission",nTree:"Family tree",nClans:"Clans",nStories:"Stories",nAbout:"About",
+en:{tCart:"Family record",tCartOvog:"lineage",tCartNone:"Our lineage",tsPeople:"members",tsGens:"generations",tsEarliest:"earliest year",cMore:"Learn more →",cBack:"← All clans",cKick:"Clan",cHist:"Historical overview",cTraits:"Characteristics",cMap:"Homeland",cToday:"Main aimags today",cHistPlace:"Historical & key places",cFigs:"Historical figures",cNoFig:"Information on historical figures of this clan is coming soon.",cDisclaimer:"Note: This is a brief overview based on the Secret History of the Mongols and general historical sources, and will be expanded with further research.",readH:"Further reading",readLead:"Articles by other journalists and researchers on family records, ancestry and consanguinity. They include differing views — read them critically.",magRead:"Read the article →",bShare:"🔗 Share",shareTitle:"Share your family tree",shareNeedLogin:"Please log in to share.",shareP:"Send this link to your family. Anyone with the link can view your tree, but cannot edit it.",shareOn:"Create share link",shareOff:"Stop sharing",shareCopy:"Copy",shareStopped:"Sharing stopped",shareMade:"Link ready ✓",viewing:"You are viewing a shared family tree (view only).",viewOwn:"Build your own →",viewMissing:"This family tree was not found or is no longer shared.",login:"Log in",logout:"Log out",authTitle:"Log in",signupTitle:"Sign up",gLogin:"Continue with Google",or:"or with email",email:"Email",pass:"Password (6+ characters)",doLogin:"Log in",doSignup:"Sign up",toSignup:"No account? Sign up",toLogin:"Have an account? Log in",forgot:"Forgot password?",resetSent:"Password reset email sent ✓",welcome:"Welcome",loggedOut:"Logged out",cloudSaved:"☁️ Saved to your account",cloudOff:"🔒 Saved on this device only. Log in to open it from any device.",syncing:"☁️ Saving…",synced:"☁️ Saved ✓",syncErr:"⚠ Couldn't save online",loaded:"Your family tree is loaded ✓",netErr:"Connection error. Please try again.",tooBig:"Too many photos to save online. Please remove some.",nHome:"Home",cLined:"family tree ✓\nask grandma ✓\nold photos…",cSub:"know your roots · your family record, online",cNote:"Knowing your ancestors is the beginning of knowing yourself.",qText:"“Let's keep our grandparents' names, clans and stories in one place, and pass them on to our children.”",qWho:"— the Ugiin Bichig mission",nTree:"Family tree",nClans:"Clans",nStories:"Stories",nAbout:"About",
 hTitle:"Keep your family record, online",hText:"Save your grandparents' names, clan and stories in one place and pass them on to your children. Start your family tree in a few minutes.",
 hCta1:"Start your family tree",hCta2:"Find your clan",magBy:"a journey back to our ancestors",aboutH:"Why Ugiin Bichig?",
 a1h:"A nation that forgot its clans",a1p:"people are registered under the clan name Borjigon. After clan names were banned for almost 70 years from 1925, many people no longer knew their real clan and chose the same one.",a1src:"Source: ikon.mn, FamilySearch →",
@@ -884,7 +918,7 @@ function branch(p,depth){
   if(depth>40)return '';
   const kids=people.filter(c=>c.parent===p.id).sort((a,b)=>(+a.born||9999)-(+b.born||9999));
   const sp=p.spouse?byId(p.spouse):null;
-  let h=`<li><div class="couple">${nodeHTML(p)}${sp?`<span class="amp">&amp;</span>${nodeHTML(sp,true)}`:''}</div>`;
+  let h=`<li><div class="couple">${nodeHTML(p)}${sp?`<span class="amp"><svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="#b8862b" stroke-width="1.6" transform="rotate(45 12 12)"><rect x="7" y="7" width="10" height="10"/><path d="M10 7V17M14 7V17M7 10H17M7 14H17M10 7c0-4 4-4 4 0M10 17c0 4 4 4 4 0M7 10c-4 0-4 4 0 4M17 10c4 0 4 4 0 4"/></g></svg></span>${nodeHTML(sp,true)}`:''}</div>`;
   if(kids.length)h+=`<ul>${kids.map(k=>branch(k,depth+1)).join('')}</ul>`;
   return h+'</li>';
 }
@@ -892,7 +926,15 @@ function renderTree(){
   const el=document.getElementById('tree');
   const roots=people.filter(p=>!p.isSpouse&&(!p.parent||!byId(p.parent)));
   if(!people.length){el.innerHTML=`<p class="empty empty-tree">${t('emptyTree')}</p>`;return}
-  el.innerHTML=`<ul>${roots.map(r=>branch(r,0)).join('')}</ul>`;
+  const real=people.filter(p=>!p.isSpouse);
+  const cnt={};real.forEach(p=>{if(p.ovog)cnt[p.ovog]=(cnt[p.ovog]||0)+1});
+  const fam=Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a])[0]||'';
+  const depth=p=>{let d=1,c=p;while(c&&c.parent&&byId(c.parent)&&d<50){c=byId(c.parent);d++}return d};
+  const gens=Math.max(...real.map(depth));
+  const yrs=people.map(p=>+p.born).filter(Boolean);const y0=yrs.length?Math.min(...yrs):'—';
+  el.innerHTML=`<div class="cart"><div class="cart-k">${t('tCart')}</div><div class="cart-t">${fam?esc(fam)+' '+t('tCartOvog'):t('tCartNone')}</div></div>
+  <div class="tstats"><div><b>${people.length}</b><span>${t('tsPeople')}</span></div><div><b>${gens}</b><span>${t('tsGens')}</span></div><div><b>${y0}</b><span>${t('tsEarliest')}</span></div></div>
+  <ul>${roots.map(r=>branch(r,0)).join('')}</ul>`;
 }
 /* modal */
 const modal=document.getElementById('modal');
